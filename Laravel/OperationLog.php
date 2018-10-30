@@ -105,6 +105,26 @@ trait OperationLog
     }
 }
 
+// 表结构
+Schema::create('logs', function (Blueprint $table) {
+    $table->increments('id');
+    $table->morphs('loggable');
+    $table->string('model_name')->comment('模块名');
+    $table->integer('user_id')->default(0)->comment('操作人 id');
+    $table->string('user_name')->default('')->comment('操作人 name');
+    $table->integer('company_id')->default(0)->comment('操作人公司 id');
+    $table->string('company_name')->default('')->comment('操作人公司 name');
+    $table->integer('school_id')->default(0)->comment('操作人校区 id');
+    $table->string('school_name')->default('')->comment('操作人校区 name');
+    $table->integer('department_id')->default(0)->comment('操作人部门 id');
+    $table->string('department_name')->default('')->comment('操作人部门 name');
+    $table->integer('role_id')->default(0)->comment('操作人角色 id');
+    $table->string('role_name')->default('')->comment('操作人角色 name');
+    $table->string('log_type')->default(0)->comment('操作类型: 字典 log_type');
+    $table->string('description')->default('')->comment('操作描述');
+    $table->timestamps();
+    $table->softDeletes();
+});
 
 // usage:
 BaseModel.php
