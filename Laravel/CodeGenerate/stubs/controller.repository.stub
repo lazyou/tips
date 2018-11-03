@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Controllers\ApiController;
+use DummyFullRepositoryClass;
+
+class DummyClass extends ApiController
+{
+    protected $repository;
+
+    public function __construct(DummyRepositoryClass $repository)
+    {
+        $this->repository = $repository;
+    }
+}
