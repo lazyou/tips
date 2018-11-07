@@ -112,7 +112,6 @@ class ApiRepository
     }
 
     /**
-     * edit by lxt 2018.04.12
      *
      * @param string $message
      * @param array  $data

@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
  *      主表记录: 操作人, 操作表, 操作类型 (增删改)
  *      附表记录变化: 字段名 字段中文 旧值 新值
  *
- * @author lxl 2017.08.18
  */
 trait OperationLog
 {

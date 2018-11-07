@@ -48,7 +48,6 @@ class ModelMakeCommand extends GeneratorCommand
     /**
      * 模型生成模板扩展： table 属性  和  fillable 属性支持
      * @return string
-     * @author lxl
      */
     protected function setTemplateMore()
     {
