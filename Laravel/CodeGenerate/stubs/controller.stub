@@ -1,0 +1,75 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Controllers\ApiController;
+
+class DummyClass extends ApiController
+{
+    protected $repository;
+
+    public function __construct(XxxRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * 列表
+     */
+    public function index()
+    {
+        $result = $this->repository->index();
+
+        return $this->respond($result);
+    }
+
+    /**
+     * 创建 before
+     */
+    public function storeBefore()
+    {
+        $result = $this->repository->storeBefore();
+
+        return $this->respond($result);
+    }
+
+    /**
+     * 创建
+     */
+    public function store(XxxStore $request)
+    {
+        $result = $this->repository->store($request->all());
+
+        return $this->respond($result, parent::REQUEST_CREATED);
+    }
+
+    /**
+     * 列表
+     */
+    public function show($id)
+    {
+        $result = $this->repository->show($id);
+
+        return $this->respond($result);
+    }
+
+    /**
+     * 修改
+     */
+    public function update(XxxStore $request, $id)
+    {
+        $result = $this->repository->update($id, $request->all());
+
+        return $this->respond($result, parent::REQUEST_NO_CONTENT);
+    }
+
+    /**
+     * 删除
+     */
+    public function destroy($id)
+    {
+        $result = $this->repository->destroy($id);
+
+        return $this->respond($result, parent::REQUEST_NO_CONTENT);
+    }
+}
